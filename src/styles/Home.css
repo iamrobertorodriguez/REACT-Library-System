@@ -1,0 +1,23 @@
+.home-screen{
+    min-height: 100vh;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.items-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.items-wrapper>li:nth-child(odd) img{    
+    border: 5px solid var(--mustard);
+}
+
+.items-wrapper>li:nth-child(even) img{    
+    border: 5px solid var(--coffee);
+}
+

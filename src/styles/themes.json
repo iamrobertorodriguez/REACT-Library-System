@@ -1,0 +1,51 @@
+[
+    {
+        "dark": "rgb(28, 10, 0)",
+        "brown": "rgb(54, 21, 0)",
+        "coffee": "rgb(96, 54, 1)",
+        "mustard": "rgb(204, 149, 68)"
+    },
+    {
+        "dark": "rgb(44, 51, 51)",
+        "brown": "rgb(57, 91, 100)",
+        "coffee": "rgb(165, 201, 202)",
+        "mustard": "rgb(231, 246, 242)"
+    },
+    {
+        "dark": "rgb(4, 3, 3)",
+        "brown": "rgb(70, 17, 17)",
+        "coffee": "rgb(161, 51, 51)",
+        "mustard": "rgb(179, 84, 30)"
+    },
+    {
+        "dark": "rgb(145, 31, 39)",
+        "brown": "rgb(99, 10, 16)",
+        "coffee": "rgb(252, 240, 200)",
+        "mustard": "rgb(250, 206, 127)"
+    },
+    {
+        "dark": "rgb(64, 34, 24)",
+        "brown": "rgb(134, 84, 57)",
+        "coffee": "rgb(198, 139, 89)",
+        "mustard": "rgb(215, 177, 157)"
+    },
+    {
+        "dark": "rgb(97, 72, 28)",
+        "brown": "rgb(164, 126, 59)",
+        "coffee": "rgb(191, 151, 66)",
+        "mustard": "rgb(230, 179, 37)"
+    },
+    {
+        "dark": "rgb(46, 2, 73)",
+        "brown": "rgb(87, 10, 87)",
+        "coffee": "rgb(169, 16, 121)",
+        "mustard": "rgb(248, 6, 204)"
+    }
+    ,
+    {
+        "dark": "rgb(23, 23, 23)",
+        "brown": "rgb(68, 68, 68)",
+        "coffee": "rgb(218, 0, 55)",
+        "mustard": "rgb(237, 237, 237)"
+    }
+]

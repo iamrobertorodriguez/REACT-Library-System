@@ -1,0 +1,282 @@
+.signup-screen{
+    min-height: 100vh;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.signup-screen>.signup {
+    margin: 0 auto;
+    height: 75vh;
+    min-height: 600px;
+    max-width: 900px;
+    display: flex;
+}
+
+.random-book {
+    width: 50%;
+    height: 100%;
+    background-color: var(--coffee);
+    border: 10px solid var(--coffee);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.random-book>img {
+    height: 101%;
+}
+
+.signup-screen>.signup>form {
+    width: 50%;
+    background-color: var(--mustard);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+}
+
+.signup-screen>.signup>#login {
+    width: 50%;
+    background-color: var(--mustard);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    gap: 3rem;
+}
+
+.signup>form .group {
+    position: relative;
+}
+
+.signup>form .group>button {
+    position: absolute;
+    right: 0;
+    bottom: 8px;
+    background: none;
+	color: var(--dark);
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    transition: color .1s;
+}
+
+.signup>form .group>button:hover {
+    color: var(--coffee);
+}
+
+.signup>form .input {
+    font-size: 16px;
+    padding: 20px 10px 10px 5px;
+    display: block;
+    width: 200px;
+    border: none;
+    border-bottom: 1px solid var(--dark);
+    background: transparent;
+}
+
+.signup>form .input:focus {
+    outline: none;
+}
+
+.signup>form label {
+    color: var(--dark);
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.signup>form .input:focus ~ label, .input:valid ~ label {
+    top: -10px;
+    font-size: 14px;
+    color: var(--dark);
+}
+
+.signup>form .bar {
+    position: relative;
+    display: block;
+    width: 200px;
+}
+
+.signup>form .bar:before, .bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: var(--coffee);
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.signup>form .bar:before {
+    left: 50%;
+}
+
+.bar:after {
+    right: 50%;
+}
+
+.signup>form .input:focus ~ .bar:before, .input:focus ~ .bar:after {
+    width: 50%;
+}
+
+.signup>form .highlight {
+    position: absolute;
+    height: 60%;
+    width: 200px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.signup>form .input:focus ~ .highlight {
+animation: inputHighlighter 0.3s ease;
+}
+
+/* From uiverse.io */
+.signup>form>.fancy {
+    background-color: transparent;
+    border: 2px solid var(--dark);
+    border-radius: 0;
+    box-sizing: border-box;
+    color: var(--dark);
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin: 0;
+    outline: none;
+    overflow: visible;
+    padding: 1.25em 2em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: none;
+    transition: all 0.3s ease-in-out;
+    user-select: none;
+    font-size: 13px;
+}
+
+.signup>form>.fancy::before {
+    content: " ";
+    width: 1.5625rem;
+    height: 2px;
+    background: var(--dark);
+    top: 50%;
+    left: 1.5em;
+    position: absolute;
+    transform: translateY(-50%);
+    transform-origin: center;
+    transition: background 0.3s linear, width 0.3s linear;
+}
+
+.signup>form>.fancy .text {
+    font-size: 1.125em;
+    line-height: 1.33333em;
+    padding-left: 2em;
+    display: block;
+    text-align: left;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--dark);
+}
+
+.signup>form>.fancy .top-key {
+    height: 2px;
+    width: 1.5625rem;
+    top: -2px;
+    left: 0.625rem;
+    position: absolute;
+    background: var(--mustard);
+    transition: width 0.5s ease-out, left 0.3s ease-out;
+}
+
+.signup>form>.fancy .bottom-key-1 {
+    height: 2px;
+    width: 1.5625rem;
+    right: 1.875rem;
+    bottom: -2px;
+    position: absolute;
+    background: var(--mustard);
+    transition: width 0.5s ease-out, right 0.3s ease-out;
+}
+
+.signup>form>.fancy .bottom-key-2 {
+    height: 2px;
+    width: 0.625rem;
+    right: 0.625rem;
+    bottom: -2px;
+    position: absolute;
+    background: var(--mustard);
+    transition: width 0.5s ease-out, right 0.3s ease-out;
+}
+
+.signup>form>.fancy:hover {
+    color: white;
+    background: var(--mustard);
+}
+
+.signup>form>.fancy:hover::before {
+    width: 0.9375rem;
+    background: var(--dark);
+}
+
+.signup>form>.fancy:hover .text {
+    color: var(--dark);
+    padding-left: 1.5em;
+}
+
+.signup>form>.fancy:hover .top-key {
+    left: -2px;
+    width: 0px;
+}
+
+.signup>form>.fancy:hover .bottom-key-1,
+.signup>form>.fancy:hover .bottom-key-2 {
+    right: 0;
+    width: 0;
+}
+
+@keyframes inputHighlighter {
+    from {
+        background: var(--coffee);
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .random-book {
+        display: none;
+    }
+
+    .signup-screen>.signup>form {
+        width: 100%;
+    }
+
+    .signup-screen>.signup>#login {
+        width: 100%;
+    }
+}

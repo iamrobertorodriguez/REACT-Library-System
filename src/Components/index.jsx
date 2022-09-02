@@ -1,0 +1,6 @@
+export {default as NavBar} from './NavBar'
+export {default as BackToTopButton} from './BackToTopButton'
+export {default as Footer} from './Footer'
+export {default as CatalogItem} from './CatalogItem'
+export {default as CategoriesItem} from './CategoriesItem'
+export {default as SearchBar} from './SearchBar'

@@ -1,0 +1,35 @@
+.catalog-item {
+    width: 220px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: transform .2s ease-in-out;
+}
+
+.catalog-item:hover {
+    transform: scale(1.1);
+    background-color: var(--brown);
+}
+
+.catalog-item>img{
+    height: 220px;
+    width: 150px;
+}
+
+@media only screen and (max-width: 600px) {
+    .catalog-item {
+        width: 127px;
+        height: 300px;
+        font-size: 14px;
+    }
+
+    .catalog-item>img {
+        height: 180px;
+        width: 100%;
+    }
+}

@@ -1,0 +1,108 @@
+.searchbar-container {
+    top: -200%;
+    right: 0;
+    left: 0;
+    position: absolute;
+    background-color: var(--mustard);
+    width: 100%;
+    height: 180%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s ease-in-out;
+    z-index: -1;
+}
+
+.active {
+    top: 100%;
+}
+
+.searchbar-container>i {
+    font-size: 24px;
+    color: var(--dark);
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    transition: all .2s ease-in;
+    z-index: -1;
+}
+
+.searchbar-container>i:hover {
+    color: red;
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+/*input*/
+
+.searchbar-container .tb {
+    display: table;
+    width: 100%;
+}
+
+.searchbar-container .td {
+    display: table-cell;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.searchbar-container input,
+.searchbar-container button {
+    color: #fff;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: transparent;
+}
+
+.searchbar-container #cover {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 1080px;
+    z-index: -1;
+    padding: 35px;
+    margin: 0 auto;
+    background-color: var(--dark);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px var(--dark), 0 0 0 20px var(--coffee);
+    transform: scale(0.6);
+}
+
+.searchbar-container form {
+    height: 20px;
+}
+
+.searchbar-container form input[type="text"] {
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    outline: none;
+}
+
+.searchbar-container input[type="text"]::placeholder {
+    color: var(--brown);
+}
+
+.searchbar-container #s-cover {
+    width: 1px;
+    padding-left: 35px;
+}
+
+.searchbar-container button {
+    position: relative;
+    display: block;
+    width: 84px;
+    height: 20px;
+    cursor: pointer;
+    text-align: end;
+}
+
+.searchbar-container button i {
+    font-size: 20px;
+}
+
+.td:hover button{
+    color: var(--coffee);
+}

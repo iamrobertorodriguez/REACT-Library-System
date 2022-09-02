@@ -1,0 +1,152 @@
+.itemdetails-screen{
+    min-height: 100vh;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.item-wrapper {
+    display: flex;
+}
+
+.item-wrapper>.item-image {
+    height: 80vh;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-wrapper>.item-image>img {
+    height: 60%;
+    border-top: 10px solid var(--mustard);
+    border-left: 10px solid var(--mustard);
+    border-bottom: 10px solid var(--coffee);
+    border-right: 10px solid var(--coffee);
+}
+
+.item-wrapper>.item-info {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.item-wrapper>.item-info>.info>h1 {
+    color: var(--mustard);
+}
+
+.item-wrapper>.item-info>.info>p {
+    color: var(--coffee);
+}
+
+.item-wrapper>.item-info>.info>.author {
+    display: inline-block;
+}
+
+.item-wrapper>.item-info>.info>.author:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.item-wrapper>.item-info>p {
+    color: var(--mustard);
+    cursor: pointer;
+    transition: letter-spacing .2s ease-in-out;
+}
+
+.item-wrapper>.item-info>p:hover {
+    letter-spacing: 1px;
+}
+
+.item-wrapper>.item-info>.description b {
+    color: var(--coffee);
+    cursor: pointer;
+}
+
+.itemdetails-screen>h3 {
+    color: var(--mustard);
+    text-align: center;
+}
+
+.item-wrapper>.item-info>.rent {
+    background-color: var(--mustard);
+    color: var(--dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.item-wrapper>.item-info>.rent>p {
+    font-size: 21px;
+    font-weight: 600;
+}
+
+.item-wrapper>.item-info>.rent>.button {
+    display: inline-block;
+    border-radius: 2px;
+    border: 1px solid var(--dark);
+    background: var(--coffee);
+    color: var(--mustard);
+    font-family: inherit;
+    text-align: center;
+    font-size: 18px;
+    width: 12em;
+    padding: 1em;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+   
+.item-wrapper>.item-info>.rent>.button span {
+    text-shadow: var(--dark) 2px 0px 0px, var(--dark) 1.75517px 0.958851px 0px, var(--dark) 1.0806px 1.68294px 0px, var(--dark) 0.141474px 1.99499px 0px, var(--dark) -0.832294px 1.81859px 0px, var(--dark) -1.60229px 1.19694px 0px, var(--dark) -1.97998px 0.28224px 0px, var(--dark) -1.87291px -0.701566px 0px, var(--dark) -1.30729px -1.5136px 0px, var(--dark) -0.421592px -1.95506px 0px, var(--dark) 0.567324px -1.91785px 0px, var(--dark) 1.41734px -1.41108px 0px, var(--dark) 1.92034px -0.558831px 0px;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.4s;
+}
+   
+.item-wrapper>.item-info>.rent>.button span:after {
+    content: 'for free';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.7s;
+}
+   
+.item-wrapper>.item-info>.rent>.button:hover span {
+    padding-right: 3.55em;
+}
+   
+.item-wrapper>.item-info>.rent>.button:hover span:after {
+    opacity: 4;
+    right: 0;
+}
+
+
+@media only screen and (max-width: 800px) {
+    .item-wrapper {
+        flex-direction: column;
+    }
+
+    .item-wrapper>.item-image {
+        width: 100%;
+        height: 50vh;
+    }
+
+    .item-wrapper>.item-info {
+        width: 100%;
+    }
+}

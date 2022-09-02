@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
+:root {
+  --dark: rgb(28, 10, 0);
+  --brown: rgb(54, 21, 0);
+  --coffee: rgb(96, 54, 1);
+  --mustard: rgb(204, 149, 68);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+* {
+  scrollbar-width: auto;
+  scrollbar-color: var(--brown) var(--mustard);
+}
+
+*::-webkit-scrollbar {
+  width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--mustard);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--brown);
+  border-radius: 10px;
+  border: 2px solid var(--coffee);
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--dark);
+  font-family: 'Cabin', sans-serif;
+}
+
+::selection {
+  color: var(--dark);
+  background: var(--mustard);
+}
+
+::-moz-selection {
+  color: var(--dark);
+  background: var(--mustard);
+}
