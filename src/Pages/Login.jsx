@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {setTheme} from '../styles/setTheme';
-import { getBookThunk } from '../redux/actions';
+import { getBookThunk, loginThunk } from '../redux/actions';
 
 const Login = () => {
 
     const dispatch = useDispatch();
     const book = useSelector(state => state.book)
     const [isPassword, setIsPassword] = useState(true)
+    const [error, setError] = useState(null)
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -23,7 +24,7 @@ const Login = () => {
             username,
             password
         }
-        console.log(data)
+        dispatch(loginThunk(data, setError))
     }
 
     return (
@@ -69,6 +70,22 @@ const Login = () => {
                         <span className="bar"></span>
                         <label>Password</label>
                     </div>
+                    {
+                        error &&
+                            <ul className='errors-list'>
+                                {
+                                    Object.keys(error).map((key, index) => (
+                                        <li key={index}>
+                                            {key}: {
+                                                typeof(error[key]) === 'string' ?
+                                                    error[key] :
+                                                        error[key][0]
+                                            }
+                                        </li>
+                                    ))
+                                }
+                            </ul>
+                    }
                     <button
                         type='submit'
                         className="fancy"

@@ -14,9 +14,9 @@ const api = 'https://iamrobertorodriguez-librarysys.herokuapp.com/api/v1/'
 
 // HEADERS
 
-const getConfig = (  ) => ({
-    headers: { Authorization: `Bearer ${ localStorage.getItem( 'token' ) }` }
-})
+const config = {
+    headers: {Authorization: `Bearer ${ localStorage.getItem('token') }`}
+}
 
 // LOADING SCREEN
 
@@ -36,6 +36,67 @@ export const endLoadingScreenThunk = (  ) => {
         dispatch(setIsLoading( false ) )
     }
 };
+
+// GET USER
+
+export const getUserThunk = () => {
+    return dispatch => {
+        return axios
+            .get(`${api}getuser/`, config)
+            .then((res) => {
+                localStorage.setItem('user', res.data.user.username)
+            })
+    }
+}
+
+// LOGIN
+
+export const loginThunk = (data, setError) => {
+    return dispatch => {
+        dispatch(startLoadingScreenThunk())
+        return axios
+            .post(`${api}login/`, data)
+            .then((res) => {
+                localStorage.setItem('token', res.data.access)
+                localStorage.setItem('refresh', res.data.refresh)
+                setError(null)
+                axios
+                    .get(`${api}getuser/`, {headers: {Authorization: `Bearer ${res.data.access}`}})
+                    .then((result) => {
+                        localStorage.setItem('user', result.data.user.username)
+                    })
+            })
+            .catch((err) => {
+                setError(err.response.data)
+            })
+            .finally((  ) => {
+                const endLoadingScreen = (  ) => {
+                    dispatch(endLoadingScreenThunk())
+                }
+                setTimeout(
+                    endLoadingScreen,
+                    1000
+                )
+            })
+    }
+};
+
+// REFRESH TOKEN
+
+export const refreshTokenThunk = () => {
+    return dispatch => {
+        return axios
+            .post(
+                `${api}token/refresh/`,
+                {
+                    refresh: localStorage.getItem('refresh')
+                }
+            )
+            .then((res) => {
+                localStorage.setItem('token', res.data.access)
+            })
+    }
+}
 
 // GET ALL BOOKS
 

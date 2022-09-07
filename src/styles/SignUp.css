@@ -256,6 +256,19 @@ animation: inputHighlighter 0.3s ease;
     width: 0;
 }
 
+.errors-list {
+    color: red;
+    margin: 0 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.errors-list>li {
+    text-transform: capitalize;
+}
+
 @keyframes inputHighlighter {
     from {
         background: var(--coffee);
