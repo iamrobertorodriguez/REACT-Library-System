@@ -9,8 +9,8 @@ export const actions = {
 }
 
 // API
-
-const api = 'https://iamrobertorodriguez-librarysys.herokuapp.com/api/v1/'
+const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL
+const api = `${BACKEND_URL}/api/v1/`
 
 // HEADERS
 
