@@ -14,11 +14,14 @@ const api = `${BACKEND_URL}/api/v1/`
 
 // HEADERS
 
-const config = (
-    import.meta.env.VITE_INCLUDE_NGROK_HEADER === 'true' ?
-    { headers: { Authorization: `Bearer ${ localStorage.getItem('token') }`, 'ngrok-skip-browser-warning': 1 } } :
-    { headers: {Authorization: `Bearer ${ localStorage.getItem('token') }`} }
-)
+const headers = { headers: {} }
+
+if ( import.meta.env.VITE_INCLUDE_NGROK_HEADER === 'true' ) {
+    headers.headers['ngrok-skip-browser-warning'] = 1
+}
+if ( localStorage.getItem('token') ) {
+    headers.headers.Authorization = `Bearer ${ localStorage.getItem('token') }`
+}
 
 // LOADING SCREEN
 
@@ -44,7 +47,7 @@ export const endLoadingScreenThunk = (  ) => {
 export const getUserThunk = () => {
     return dispatch => {
         return axios
-            .get(`${api}getuser/`, config)
+            .get(`${api}getuser/`, headers)
             .then((res) => {
                 localStorage.setItem('user', res.data.user.username)
             })
@@ -57,13 +60,13 @@ export const loginThunk = (data, setError) => {
     return dispatch => {
         dispatch(startLoadingScreenThunk())
         return axios
-            .post(`${api}login/`, data)
+            .post(`${api}login/`, data, headers)
             .then((res) => {
                 localStorage.setItem('token', res.data.access)
                 localStorage.setItem('refresh', res.data.refresh)
                 setError(null)
                 axios
-                    .get(`${api}getuser/`, {headers: {Authorization: `Bearer ${res.data.access}`}})
+                    .get(`${api}getuser/`, {headers: { ...headers, Authorization: `Bearer ${res.data.access}`}})
                     .then((result) => {
                         localStorage.setItem('user', result.data.user.username)
                     })
@@ -92,7 +95,8 @@ export const refreshTokenThunk = () => {
                 `${api}token/refresh/`,
                 {
                     refresh: localStorage.getItem('refresh')
-                }
+                },
+                headers
             )
             .then((res) => {
                 localStorage.setItem('token', res.data.access)
@@ -111,7 +115,7 @@ export const getBooksThunk = (  ) => {
     return dispatch => {
         dispatch(startLoadingScreenThunk())
         return axios
-        .get(`${api}catalog/`)
+        .get(`${api}catalog/`, headers)
         .then((res) => {
             dispatch(setBooks(res.data))
         })
@@ -136,7 +140,7 @@ export const searchBooksThunk = (slug) => {
     return dispatch => {
         dispatch(startLoadingScreenThunk())
         return axios
-        .get(`${api}catalog/?search=${slug}`)
+        .get(`${api}catalog/?search=${slug}`, headers)
         .then((res) => {
             dispatch(setBooks(res.data))
         })
@@ -166,7 +170,7 @@ export const getBookThunk = (i, setAvaliableItems, setDescription, setCategory, 
     return dispatch => {
         dispatch(startLoadingScreenThunk())
         return axios
-            .get(`${api}catalog/${i}/`)
+            .get(`${api}catalog/${i}/`, headers)
             .then((res) => {
                 dispatch(setBook(res.data))
                 setAvaliableItems(res.data.items)
@@ -174,7 +178,7 @@ export const getBookThunk = (i, setAvaliableItems, setDescription, setCategory, 
                 setCategory(res.data.category)
                 setLocation(res.data.location)
                 axios
-                    .get(`${api}categories/${res.data.category.id}/`)
+                    .get(`${api}categories/${res.data.category.id}/`, headers)
                     .then((response) => {
                         dispatch(setBooks(response.data.books))
                     })
@@ -208,7 +212,7 @@ export const getCategoryThunk = ( i ) => {
     return dispatch => {
         dispatch(startLoadingScreenThunk())
         return axios
-        .get(`${api}categories/${i}/`)
+        .get(`${api}categories/${i}/`, headers)
         .then((res) => {
             dispatch(setCategory(res.data))
             dispatch(setBooks(res.data.books))
@@ -237,7 +241,7 @@ export const getCategoriesThunk = (  ) => {
     return dispatch => {
         dispatch(startLoadingScreenThunk())
         return axios
-        .get(`${api}categories/`)
+        .get(`${api}categories/`, headers)
         .then((res) => {
             dispatch(setCategories(res.data))
         })

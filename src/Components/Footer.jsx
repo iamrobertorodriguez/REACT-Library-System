@@ -38,8 +38,8 @@ const Footer = () => {
                     <div className="footer-col">
                         <h4>follow me</h4>
                         <div className="social-links">
-                            <a href="https://iamrobertorodriguez.ml/"><i className="fa-solid fa-code"></i></a>
-                            <a href="https://github.com/RodriguezRoberto"><i className="fa-brands fa-github"></i></a>
+                            <a href="https://iamrobertorodriguez.com/"><i className="fa-solid fa-code"></i></a>
+                            <a href="https://github.com/iamrobertorodriguez"><i className="fa-brands fa-github"></i></a>
                             <a href="https://www.instagram.com/__gitbash__/"><i className="fa-brands fa-instagram"></i></a>
                             <a href="https://www.linkedin.com/in/iamrobertorodriguez/"><i className="fab fa-linkedin-in"></i></a>
                         </div>
