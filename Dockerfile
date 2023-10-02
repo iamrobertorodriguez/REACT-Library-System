@@ -1,5 +1,5 @@
 #NextJs app dockerfile
-FROM node:latest
+FROM node:18-alpine
 
 # Create app directory
 WORKDIR /app
