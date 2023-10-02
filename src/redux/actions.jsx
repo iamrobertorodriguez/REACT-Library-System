@@ -14,9 +14,11 @@ const api = `${BACKEND_URL}/api/v1/`
 
 // HEADERS
 
-const config = {
-    headers: {Authorization: `Bearer ${ localStorage.getItem('token') }`}
-}
+const config = (
+    import.meta.env.VITE_INCLUDE_NGROK_HEADER === 'true' ?
+    { headers: { Authorization: `Bearer ${ localStorage.getItem('token') }`, 'ngrok-skip-browser-warning': 1 } } :
+    { headers: {Authorization: `Bearer ${ localStorage.getItem('token') }`} }
+)
 
 // LOADING SCREEN
 
